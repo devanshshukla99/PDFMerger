@@ -27,7 +27,6 @@ def main():
         with TempDir() as tempdir:
             uploaded_filenames = []
             filenames_for_template = []
-            print(tempdir)
             console.log(files)
 
             for f in files:

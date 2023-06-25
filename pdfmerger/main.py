@@ -1,9 +1,10 @@
 import re
+import os
 import ast
 import pathlib
 import argparse
-from PyPDF2 import PdfMerger, PdfReader, PdfWriter
 from rich.console import Console
+from PyPDF2 import PdfMerger, PdfReader, PdfWriter
 
 console = Console()
 
@@ -40,19 +41,6 @@ def parse_range(pages_range):
                 _select_pages.append(int(x))
             out_pages.append(_select_pages)
             console.log(f"It's page(s): {_select_pages[1:]}")
-
-        # # comma test
-        # elif re.match(r"[0-9]+,", page):
-        #     # selecting individual pages
-        #     _select_pages = ["select_pages"]
-        #     for x in re.split(",", page):
-        #         _select_pages.append(int(x))
-        #     out_pages.append(_select_pages)
-        #     console.log(f"It's page(s): {_select_pages[1:]}")
-
-        # elif type(page) is str or type(page) is int:
-        #     out_pages.append(["select_individual", int(page)])
-        #     console.log(f"It's all page(s)")
 
     return out_pages
 
@@ -126,6 +114,11 @@ def merger(files, output, pages_range=None):
 
     console.log(f"[red]Merged PDF: [green]{output}[/]")
     console.rule()
+
+    # cleanup
+    for pdf_file in pdf_files:
+        console.log(f"rm {pdf_file}")
+        os.remove(pdf_file)
     return True
 
 
@@ -134,5 +127,4 @@ if __name__ == "__main__":
     parser.add_argument("files", type=str, nargs="*", help="PDF files to be merged [allows regex]")
     parser.add_argument("--output", "-o", type=str, nargs=1, default="out.pdf", help="output file")
     args = parser.parse_args()
-    print(args)
     merger(args.files, args.output)
