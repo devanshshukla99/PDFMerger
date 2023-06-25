@@ -1,0 +1,74 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    color: rgb(229, 229, 229);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+header a {
+    text-decoration: none;
+    color: var(--color)
+}
+
+header a:hover {
+    text-decoration: none;
+    color: rgb(241, 255, 255);
+}
+
+header {
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.container {
+    display: grid;
+    gap: 50px 100px;
+    /* justify-content: center;
+    align-items: center; */
+}
+
+tr {
+    padding: 1rem;
+}
+
+td {
+    padding: 5px;
+}
+
+.hook-container {
+    display: inline-flex;
+    padding-left: 2rem;
+    padding-bottom: 0.5rem;
+}
+
+.hook-container a {
+    color: rgb(0, 103, 221);
+    text-decoration: none;
+}
+
+#UploadAddButton {
+    min-width: 10%;
+    max-width: 20%;
+}
+
+#mydiv {
+    position: absolute;
+    z-index: 9;
+    background-color: #f1f1f1;
+    border: 1px solid #d3d3d3;
+    text-align: center;
+}
+
+#mydivheader {
+    padding: 10px;
+    cursor: move;
+    z-index: 10;
+    background-color: #2196F3;
+    color: #fff;
+}

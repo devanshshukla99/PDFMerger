@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}PDFMerger{% endblock %}
+{% block header %}
+<h1>PDFMerger</h1>
+{% endblock %}
+
+{% block head %}
+<script src="static/jquery-ui-1.13.2.js" integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c="></script>
+<script src="static/script.js"></script>
+<style>
+    .card {
+        width: 40%;
+    }
+
+    .cards-container {
+        display: flex;
+        min-height: 160px;
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .draggable-card {
+        margin: 1rem;
+        padding: 1rem;
+        min-width: 80px;
+        min-height: 80px;
+        user-select: none;
+    }
+
+    .pages-range {
+        width: 2cm;
+        margin-top: 10px;
+    }
+</style>
+{% endblock %}
+{% block body %}
+<div class="container">
+    <input type="button" class="btn btn-primary" value="+" id="UploadAddButton">
+    <form action="/" method="post" enctype="multipart/form-data">
+        <div class="cards-container ui-sortable list-group" id="upload-container">
+            <div class="card list-item draggable-card ui-sortable-handle ui-sortable-placeholder">
+                <div class="card-body">
+                    <input type="file" class="form-control" name="files" />
+                    <input type="text" class="form-control mb-3 w-25" placeholder="range" class="noscroll pages-range"
+                        name="pages-range" />
+                </div>
+            </div>
+            <div class="card list-item draggable-card ui-sortable-handle ui-sortable-placeholder">
+                <div class="card-body">
+                    <input type="file" class="form-control" name="files" />
+                    <input type="text" class="form-control mb-3 w-25" placeholder="range" class="noscroll pages-range"
+                        name="pages-range" />
+                </div>
+            </div>
+        </div>
+        <input type="submit" class="btn btn-primary" />
+    </form>
+</div>
+{% endblock %}
