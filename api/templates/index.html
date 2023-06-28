@@ -13,24 +13,8 @@
     <input type="button" class="btn btn-primary" value="+" id="UploadAddButton">
     <form class="needs-validation" id="upload-form" action="/" method="post" enctype="multipart/form-data" novalidate>
         <div class="cards-container ui-sortable list-group" id="upload-container">
-            <div class="card list-item draggable-card ui-sortable-handle ui-sortable-placeholder">
-                <button type="button" class="btn-close" aria-label="Close"></button>
-                <div class="card-body">
-                    <input type="file" class="form-control" name="files" required />
-                    <div class="invalid-feedback">Invalid file | the input file must be a valid PDF. </div>
-                    <input type="text" class="form-control mb-3 w-25" placeholder="range" class="noscroll pages-range"
-                        name="pages-range" />
-                </div>
-            </div>
-            <div class="card list-item draggable-card ui-sortable-handle ui-sortable-placeholder">
-                <button type="button" class="btn-close" aria-label="Close"></button>
-                <div class="card-body">
-                    <input type="file" class="form-control" name="files" required />
-                    <div class="invalid-feedback">Invalid file | the input file must be a valid PDF. </div>
-                    <input type="text" class="form-control mb-3 w-25" placeholder="range" class="noscroll pages-range"
-                        name="pages-range" />
-                </div>
-            </div>
+            <filecard></filecard>
+            <filecard></filecard>
         </div>
         <input type="submit" class="btn btn-primary" />
     </form>

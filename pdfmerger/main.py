@@ -106,8 +106,9 @@ def merger_without_glob(files, output, pages_range=None):
 
     # cleanup
     for pdf_file in pdf_files:
-        console.log(f"rm {pdf_file}")
-        os.remove(pdf_file)
+        if os.path.exists(pdf_file):
+            console.log(f"rm {pdf_file}")
+            os.remove(pdf_file)
     return True
 
 
