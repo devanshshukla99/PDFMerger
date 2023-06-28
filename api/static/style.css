@@ -80,3 +80,23 @@ td {
     width: 2cm;
     margin-top: 10px;
 }
+
+.btn-close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+
+.form-control.is-invalid,
+.was-validated .form-control:invalid {
+    background-image: none !important;
+    border-color: #ced4da;
+    padding-right: 0.75em;
+}
+
+.form-control.is-valid,
+.was-validated .form-control:valid {
+    background-image: none !important;
+    border-color: #ced4da;
+    padding-right: 0.75em;
+}

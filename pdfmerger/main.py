@@ -46,11 +46,11 @@ def parse_range(pages_range):
 
 
 def merger_without_glob(files, output, pages_range=None):
-    pdf_files = []
 
     if not files:
         return False
 
+    pdf_files = files
     console.log("[red]PDF to be merged:[/]", pdf_files)
     if not pages_range:
         console.log("Merging all pages")
