@@ -3,7 +3,7 @@ from werkzeug.utils import secure_filename
 from flask import Flask, render_template, request, send_file
 
 from webapp.util import TempDir
-from pdfmerger.main import merger
+from pdfmerger.main import merger_without_glob
 
 app = Flask(__name__)
 
@@ -38,7 +38,7 @@ def main():
 
             console.log(uploaded_filenames)
             outfile = tempdir + "/" + "out.pdf"
-            if merger(uploaded_filenames, outfile, pages_ranges):
+            if merger_without_glob(uploaded_filenames, outfile, pages_ranges):
                 return send_file(outfile)
 
         return "Idk, an issue occured"

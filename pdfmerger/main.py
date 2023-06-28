@@ -45,24 +45,13 @@ def parse_range(pages_range):
     return out_pages
 
 
-def merger(files, output, pages_range=None):
+def merger_without_glob(files, output, pages_range=None):
     pdf_files = []
 
     if not files:
         return False
 
-    # Check if there are any wild flags, glob usage
-    pattern = re.compile(r"^[\w|//]+.\w+$")
-    for _file in files:
-        if not bool(pattern.fullmatch(_file)):
-            files_path = pathlib.Path(_file)
-            files_dir = files_path.parent
-            files_regex = files_path.name
-            pdf_files.extend(files_dir.glob(files_regex))
-        else:
-            pdf_files.extend(re.split(",|\ ", _file))
     console.log("[red]PDF to be merged:[/]", pdf_files)
-
     if not pages_range:
         console.log("Merging all pages")
         # Create an instance of PdfFileMerger() class
@@ -120,6 +109,26 @@ def merger(files, output, pages_range=None):
         console.log(f"rm {pdf_file}")
         os.remove(pdf_file)
     return True
+
+
+def merger(files, output, pages_range=None):
+    pdf_files = []
+
+    if not files:
+        return False
+
+    # Check if there are any wild flags, glob usage
+    pattern = re.compile(r"^[\w|//]+.\w+$")
+    for _file in files:
+        if not bool(pattern.fullmatch(_file)):
+            files_path = pathlib.Path(_file)
+            files_dir = files_path.parent
+            files_regex = files_path.name
+            pdf_files.extend(files_dir.glob(files_regex))
+        else:
+            pdf_files.extend(re.split(",|\ ", _file))
+
+    return merger_without_glob(pdf_files, output, pages_range)
 
 
 if __name__ == "__main__":
