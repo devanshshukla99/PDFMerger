@@ -37,8 +37,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
                         if (element.value) {
                             if (!element.value.endsWith(".pdf")) {
                                 element.classList.add("is-invalid");
-                                console.log("meow")
-                                // element.style.css.
                                 event.preventDefault()
                                 event.stopPropagation()
                             }
@@ -48,36 +46,4 @@ window.addEventListener("DOMContentLoaded", (event) => {
                 }, false)
             })
     })()
-    // document.getElementById("upload-form").addEventListener("submit", event => {
-    //     console.log("form submitted")
-    //     event.preventDefault();
-    //     document.getElementsByName("files").forEach(element => {
-    //         if (element.value) {
-    //             if (!element.value.endsWith(".pdf")) {
-    //                 element.classList.remove("is-invalid")
-    //                 element.classList.remove("is-valid")
-    //                 element.classList.add("is-invalid");
-    //                 console.log(element)
-    //             }
-    //         }
-    //     });
-    // });
-    // document.getElementById("upload-form").bootstrapValidator({
-    //     feedbackIcons: {
-    //         valid: 'glyphicon glyphicon-ok',
-    //         invalid: 'glyphicon glyphicon-remove',
-    //         validating: 'glyphicon glyphicon-refresh'
-    //     },
-    //     fields: {
-    //         avatar: {
-    //             validators: {
-    //                 file: {
-    //                     extension: 'pdf',
-    //                     type: 'application/pdf',
-    //                     message: 'The selected file is not valid'
-    //                 }
-    //             }
-    //         }
-    //     }
-    // });
 });
