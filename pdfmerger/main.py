@@ -4,7 +4,7 @@ import ast
 import pathlib
 import argparse
 from rich.console import Console
-from PyPDF import PdfMerger, PdfReader, PdfWriter
+from pypdf import PdfMerger, PdfReader, PdfWriter
 
 console = Console()
 
