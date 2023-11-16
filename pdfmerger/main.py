@@ -4,7 +4,7 @@ import os
 import pathlib
 import re
 
-from pypdf import PdfMerger, PdfReader, PdfWriter
+from pypdf import PdfReader, PdfWriter
 from rich.console import Console
 
 console = Console()
@@ -55,16 +55,17 @@ def merger_without_glob(files, output, pages_range=None):
     if not pages_range:
         console.log("Merging all pages")
         # Create an instance of PdfFileMerger() class
-        merger = PdfMerger()
+        out_pdf = PdfWriter()
 
         # Iterate over the list of the file paths
         for pdf_file in pdf_files:
-            # Append PDF files
-            merger.append(pdf_file)
+            pdf = PdfReader(pdf_file)
+            for index in range(len(pdf.pages)):
+                out_pdf.add_page(pdf.pages[index])
 
         # Write out the merged PDF file
-        merger.write(output)
-        merger.close()
+        with open(output, "wb") as out:
+            out_pdf.write(out)
         console.log(f"[red]Merged PDF: [green]{output}[/]")
         console.rule()
         return True
