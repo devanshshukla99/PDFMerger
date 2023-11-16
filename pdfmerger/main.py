@@ -1,10 +1,11 @@
-import re
-import os
-import ast
-import pathlib
 import argparse
-from rich.console import Console
+import ast
+import os
+import pathlib
+import re
+
 from pypdf import PdfMerger, PdfReader, PdfWriter
+from rich.console import Console
 
 console = Console()
 
@@ -46,7 +47,6 @@ def parse_range(pages_range):
 
 
 def merger_without_glob(files, output, pages_range=None):
-
     if not files:
         return False
 

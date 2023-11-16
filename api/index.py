@@ -1,6 +1,6 @@
+from flask import Flask, render_template, request, send_file
 from rich.console import Console
 from werkzeug.utils import secure_filename
-from flask import Flask, render_template, request, send_file
 
 from api.util import TempDir
 from pdfmerger.main import merger_without_glob
