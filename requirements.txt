@@ -1,5 +1,5 @@
 Flask==2.3.2
-PyPDF==6.4.0
+PyPDF==6.6.0
 rich==13.4.2
 setuptools==78.1.1
 Werkzeug==3.1.5
